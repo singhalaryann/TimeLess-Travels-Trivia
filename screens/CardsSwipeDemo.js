@@ -5,24 +5,24 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const CardsSwipeDemo = () => {
   const [data, setData] = useState([
-    { image: require('../assets/Groot.jpg'), id: 1, title: 'Groot' },
-    { image: require('../assets/Thor.jpg'), id: 2, title: 'Thor' },
-    { image: require('../assets/Hulk.jpg'), id: 3, title: 'Hulk' },
-    { image: require('../assets/Spiderman.jpg'), id: 4, title: 'Spiderman' },
-    { image: require('../assets/Thor.jpg'), id: 5, title: 'Thor' },
-    { image: require('../assets/Venom.jpg'), id: 6, title: 'Venom' },
+    { image: require('../assets/Groot.jpg'), id: 1, title: 'Groot', about: 'This is one of the character of Marvels.' },
+    { image: require('../assets/Thor.jpg'), id: 2, title: 'Thor', about: 'Go next with Thor.' },
+    { image: require('../assets/Hulk.jpg'), id: 3, title: 'Hulk', about: 'Hulk!!!!!' },
+    { image: require('../assets/Spiderman.jpg'), id: 4, title: 'Spiderman', about: 'Spiderman is one of the character of Marvels.' },
+    { image: require('../assets/Thor.jpg'), id: 5, title: 'Thor', about: 'Thor is one of the main character of Ragnarok.' },
+    { image: require('../assets/Venom.jpg'), id: 6, title: 'Venom', about: 'Venom.' },
   ]);
 
   useEffect(()=> {
 if(!data.length){
    setData([
-    { image: require('../assets/Groot.jpg'), id: 1, title: 'Groot' },
-    { image: require('../assets/Thor.jpg'), id: 2, title: 'Thor' },
-    { image: require('../assets/Hulk.jpg'), id: 3, title: 'Hulk' },
-    { image: require('../assets/Spiderman.jpg'), id: 4, title: 'Spiderman' },
-    { image: require('../assets/Thor.jpg'), id: 5, title: 'Thor' },
-    { image: require('../assets/Venom.jpg'), id: 6, title: 'Venom' },
-  ])
+    { image: require('../assets/Groot.jpg'), id: 1, title: 'Groot', about: 'This is one of the character of Marvels.' },
+    { image: require('../assets/Thor.jpg'), id: 2, title: 'Thor', about: 'Go next with Thor.' },
+    { image: require('../assets/Hulk.jpg'), id: 3, title: 'Hulk', about: 'Hulk!!!!!' },
+    { image: require('../assets/Spiderman.jpg'), id: 4, title: 'Spiderman', about: 'Spiderman is one of the character of Marvels.' },
+    { image: require('../assets/Thor.jpg'), id: 5, title: 'Thor', about: 'Thor is one of the main character of Ragnarok.' },
+    { image: require('../assets/Venom.jpg'), id: 6, title: 'Venom', about: 'Venom.' },
+  ]);
 }
   }, [data])
   const swipe = useRef(new Animated.ValueXY()).current;

@@ -24,12 +24,13 @@ const Cards = ({ items, isFirst, swipe, ...rest }) => {
         <Animated.View style={{ position: 'absolute', top: 40, right: 30, transform: [{ rotate: '30deg' }], opacity: nopeOpacity }}>
           <CardsChoice type={'Nope'} />
         </Animated.View>
-        <Animated.View style={{ position: 'absolute', top: 40, left: 30, transform: [{ rotate: '-30deg' }], opacity: likeOpacity }}>
-          <CardsChoice type={'Like'} />
+        <Animated.View style={{ position: 'absolute', top: 30, left: 10, transform: [{ rotate: '-20deg' }], opacity: likeOpacity }}>
+          <CardsChoice type={items.about} />
         </Animated.View>
       </>
     )
   }, [])
+
   return (
     <Animated.View style={[{ position: 'absolute', alignSelf: 'center', top: 80, }, isFirst && { transform: [...swipe.getTranslateTransform(), {rotate: rotate }] }]} {...rest}>
       <Image style={{ width: 380, height: 650, borderRadius: 20 }} source={items.image} />
@@ -46,6 +47,14 @@ const styles = StyleSheet.create({
     bottom: 55,
     left: 10,
     fontWeight: 'bold'
+  },
+  about: {
+    fontSize: 22,
+    color: 'white',
+    top: 20,
+    left: 10,
+    fontWeight: 'bold',
+    position: 'absolute'
   }
 })
 export default Cards

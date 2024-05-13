@@ -16,7 +16,7 @@ const Homepage = ({ navigation }) => {
       </TouchableOpacity>
       </View>
       <View style={styles.image2}>
-      <TouchableOpacity style={styles.image2} onPress={() => console.log("Storybook is clicked!")}>
+      <TouchableOpacity style={styles.image2} onPress={() => navigation.navigate('StorybookPage')}>
         <Image style={styles.image2} source={require('../assets/book.png')} />
       </TouchableOpacity>
       </View>

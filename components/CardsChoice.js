@@ -4,7 +4,7 @@ import React from 'react'
 const CardsChoice = ({ type }) => {
   return (
     <View>
-      <Text style={[styles.text, { color: type === 'Like' ? 'green' : 'red', borderColor: type === 'Like' ? 'green' : 'red',  }]}>
+      <Text style={[styles.text, { color: type === 'Nope' ? 'red' : 'white', borderColor: type === 'Nope' ? 'red' : 'blue',  }]}>
         {type}
       </Text>
     </View>
@@ -12,10 +12,10 @@ const CardsChoice = ({ type }) => {
 }
 const styles = StyleSheet.create({
   text: {
-    fontSize: 30,
+    fontSize: 20,
     borderWidth: 5,
-    paddingLeft: 20,
-    paddingTop: 20,
+    paddingLeft: 10,
+    paddingTop: 10,
     paddingBottom: 10,
     paddingRight: 10,
     borderRadius: 10
