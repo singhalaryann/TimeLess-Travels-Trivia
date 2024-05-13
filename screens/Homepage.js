@@ -5,7 +5,9 @@ const Homepage = ({ navigation }) => {
   return (
     <View style={styles.homepage}>
       <View style={styles.buttonContainer}>
+      <TouchableOpacity onPress={() => navigation.navigate('')}>
         <Text style={styles.socialButton1}>Timeless Travels</Text>
+        </TouchableOpacity>
         <TouchableOpacity onPress={() => navigation.navigate('LevelsPage')}>
           <Text style={styles.socialButton2}>LEVELS</Text>
         </TouchableOpacity>
@@ -37,6 +39,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     top: 500,
+    
   },
   socialButton1: {
     paddingHorizontal: 80,
@@ -45,7 +48,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     fontSize: 25,
     fontWeight: 'bold',
-    color: 'black'
+    color: 'black', 
+    
   },
   socialButton2: {
     paddingHorizontal: 60,

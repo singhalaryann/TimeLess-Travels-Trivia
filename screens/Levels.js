@@ -1,72 +1,42 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity, FlatList } from 'react-native';
 
 const Levels = ({ navigation }) => {
+  const data = [
+    { key: '1', image: require('../assets/L-1.jpg'), text: 'MARVEL' },
+    { key: '2', image: require('../assets/L-2.jpg'), text: 'Haunted-House' },
+    { key: '3', image: require('../assets/L-3.jpg'), text: 'Adventure Island' },
+    { key: '4', image: require('../assets/Hulk.jpg'), text: 'Level 4' },
+    { key: '5', image: require('../assets/Venom.jpg'), text: 'Level 5' },
+    { key: '6', image: require('../assets/Spiderman.jpg'), text: 'Level 6' },
+    { key: '7', image: require('../assets/Groot.jpg'), text: 'Level 7' },
+    { key: '8', image: require('../assets/Spiderman.jpg'), text: 'Level 8' },
+    { key: '9', image: require('../assets/Thor.jpg'), text: 'Level 9' },
+  ];
+
+  const renderItem = ({ item }) => (
+    <TouchableOpacity onPress={() => {
+      if (item.key === '1') {
+        navigation.navigate('CardsSwipeDemoPage');
+      }
+    }}>
+      <View style={styles.box}>
+        <Image style={styles.image} source={item.image} />
+        <Text style={styles.text}>{item.text}</Text>
+      </View>
+    </TouchableOpacity>
+  );
+
   return (
     <View style={styles.container}>
-      <Text style={styles.journey}>
-        Journeys
-      </Text>
-      <View style={styles.row}>
-        <View style={styles.box}>
-          <TouchableOpacity onPress={() => navigation.navigate('CardsSwipeDemoPage')}>
-            <Image style={styles.image} source={require('../assets/L-1.jpg')} />
-            <Text style={styles.text}>MARVEL</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.box}>
-        <TouchableOpacity onPress={() => navigation.navigate('CardsSwipeDemoPage')}>
-          <Image style={styles.image} source={require('../assets/L-2.jpg')} />
-          <Text style={styles.text}>Haunted-House</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.box}>
-        <TouchableOpacity onPress={() => navigation.navigate('CardsSwipeDemoPage')}>
-          <Image style={styles.image} source={require('../assets/L-3.jpg')} />
-          <Text style={styles.text}>Adventure Island</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
-      <View style={styles.row}>
-        <View style={styles.box}>
-        <TouchableOpacity onPress={() => navigation.navigate('CardsSwipeDemoPage')}>
-          <Image style={styles.image} source={require('../assets/Hulk.jpg')} />
-          <Text style={styles.text}>Level 4</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.box}>
-        <TouchableOpacity>
-          <Image style={styles.image} source={require('../assets/Venom.jpg')} />
-          <Text style={styles.text}>Level 5</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.box}>
-        <TouchableOpacity>
-          <Image style={styles.image} source={require('../assets/Spiderman.jpg')} />
-          <Text style={styles.text}>Level 6</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
-      <View style={styles.row}>
-        <View style={styles.box}>
-        <TouchableOpacity>
-          <Image style={styles.image} source={require('../assets/Groot.jpg')} />
-          <Text style={styles.text}>Level 7</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.box}>
-        <TouchableOpacity>
-          <Image style={styles.image} source={require('../assets/Spiderman.jpg')} />
-          <Text style={styles.text}>Level 8</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.box}>
-        <TouchableOpacity>
-          <Image style={styles.image} source={require('../assets/Thor.jpg')} />
-          <Text style={styles.text}>Level 9</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
+      <Text style={styles.journey}>Journeys</Text>
+      <FlatList
+        data={data}
+        renderItem={renderItem}
+        keyExtractor={(item) => item.key}
+        numColumns={3}
+        contentContainerStyle={styles.flatlistContent}
+      />
     </View>
   );
 };
@@ -75,26 +45,29 @@ const styles = StyleSheet.create({
   journey: {
     textShadowColor: 'red',
     textShadowOffset: { width: 2, height: 4 },
-    textShadowRadius: 10, fontSize: 40, fontWeight: 'bold', justifyContent: 'center', textAlign: 'center', top: 40, color: 'white'
+    textShadowRadius: 10,
+    fontSize: 40,
+    fontWeight: 'bold',
+    justifyContent: 'center',
+    textAlign: 'center',
+    top: 40,
+    color: 'white'
   },
   container: {
     flex: 1,
-    flexDirection: 'column',
     backgroundColor: 'black',
     padding: 10,
   },
-  row: {
-    flexDirection: 'row',
-    justifyContent: 'space-evenly',
-    marginBottom: 20,
+  flatlistContent: {
+    alignItems: 'center',
+    paddingTop: 20,
+    top: 50
   },
   box: {
     alignItems: 'center',
     backgroundColor: 'white',
     borderRadius: 11,
-    top: 80,
-    position: 'relative', 
-
+    margin: 5,
   },
   text: {
     fontSize: 15,
@@ -105,7 +78,6 @@ const styles = StyleSheet.create({
     textShadowColor: 'black',
     textShadowOffset: { width: 1, height: 3 },
     textShadowRadius: 10,
-
   },
   image: {
     width: 125,

@@ -68,6 +68,8 @@ const styles = StyleSheet.create({
         width: "80%",
         height: 380,
         borderRadius: 10,
+        shadowColor: 'white',
+    elevation: 50, 
         
     },
     signUp: {

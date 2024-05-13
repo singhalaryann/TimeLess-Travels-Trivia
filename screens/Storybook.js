@@ -108,8 +108,8 @@ const Storybook = ({ navigation }) => {
 const styles = StyleSheet.create({
     buttonContainer: {
         position: 'absolute',
-        top: 750,
-        left: 90
+        top: 750, // Adjust this value as needed
+        left: 90,
     },
     socialButton2: {
         paddingHorizontal: 40,

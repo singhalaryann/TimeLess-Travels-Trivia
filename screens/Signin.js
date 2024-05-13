@@ -71,6 +71,8 @@ const styles = StyleSheet.create({
         width: "80%",
         height: 350,
         borderRadius: 10,
+        shadowColor: 'white',
+    elevation: 50, 
     },    
     signIn: {
         fontSize: 28,

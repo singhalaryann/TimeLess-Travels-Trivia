@@ -8,6 +8,7 @@ import CardsSwipeDemo from "./screens/CardsSwipeDemo";
 import Levels from "./screens/Levels";
 import Signin from "./screens/Signin";
 import Storybook from "./screens/Storybook";
+import LevelComplete from "./screens/LevelComplete";
 
 const Stack = createStackNavigator();
 
@@ -22,6 +23,7 @@ const App = () => {
           <Stack.Screen name="StorybookPage" component={Storybook} />
           <Stack.Screen name="CardsSwipeDemoPage" component={CardsSwipeDemo} />
           <Stack.Screen name="LevelsPage" component={Levels} />
+          <Stack.Screen name="LevelCompletePage" component={LevelComplete} />
         </Stack.Navigator>
     </NavigationContainer>
   );
