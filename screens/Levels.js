@@ -50,28 +50,27 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     justifyContent: 'center',
     textAlign: 'center',
-    top: 40,
+    // top: 20,
     color: 'white'
   },
   container: {
     flex: 1,
     backgroundColor: 'black',
-    padding: 10,
+    // padding: 10,
   },
   flatlistContent: {
     alignItems: 'center',
-    paddingTop: 20,
-    top: 50
+    // paddingTop: 20,
   },
   box: {
     alignItems: 'center',
     backgroundColor: 'white',
-    borderRadius: 11,
+    borderRadius: 10,
     margin: 5,
   },
   text: {
     fontSize: 15,
-    marginTop: 20,
+    marginTop: 10,
     textAlign: 'center',
     color: 'black',
     fontWeight: 'bold',

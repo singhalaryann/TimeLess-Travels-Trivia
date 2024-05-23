@@ -5,192 +5,162 @@ const Storybook = ({ navigation }) => {
     return (
         <View style={styles.container}>
             <Text style={styles.heading}>Storybook</Text>
-            <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-                <View style={styles.card}>
-                    <Text style={styles.title}>Bonecrusher Giant</Text>
-                    <Image style={styles.image} source={require('../assets/Hulk.jpg')} />
-                    <Text style={styles.subtitle}>Creature-Giant</Text>
-                    <View style={styles.cardContent}>
-                        <View style={styles.cardSection}>
-                            <Text style={styles.cardText}>Stomp Instant - Adventure</Text>
-                            <View style={styles.cardSubsection}>
-                                <Text style={styles.subsectionText}>Damage can't be prevented this turn. Stomp deals 2 damage to any target.</Text>
+            <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.scrollContainer}>
+                {cardsData.map((card, index) => (
+                    <View key={index} style={styles.card}>
+                        <Text style={styles.title}>{card.title}</Text>
+                        <Image style={styles.image} source={card.image} resizeMode="repeat" />
+                        <Text style={styles.subtitle}>{card.subtitle}</Text>
+                        <View style={styles.cardContent}>
+                            <View style={styles.cardSection}>
+                                <Text style={styles.cardText}>{card.sectionTitle}</Text>
+                                <View style={styles.cardSubsection}>
+                                    <Text style={styles.subsectionText}>{card.sectionText}</Text>
+                                </View>
+                            </View>
+                            <View style={styles.cardSection}>
+                                <Text style={styles.cardText}>{card.description}</Text>
                             </View>
                         </View>
-                        <View style={styles.cardSection}>
-                            <Text style={styles.cardText}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque sed praesentium blanditiis iste vel? Minima eum mollitia aspernatur expedita modi.</Text>
-                        </View>
                     </View>
-                </View>
-
-                <View style={styles.card}>
-                    <Text style={styles.title}>Runaway Steam-Kin</Text>
-                    <Image style={styles.image} source={require('../assets/Spiderman.jpg')} />
-                    <Text style={styles.subtitle}>Creature-Giant</Text>
-
-                    <View style={styles.cardContent}>
-                        <View style={styles.cardSection}>
-                            <Text style={styles.cardText}>Stomp Instant - Adventure</Text>
-                            <View style={styles.cardSubsection}>
-                                <Text style={styles.subsectionText}>Damage can't be prevented this turn. Stomp deals 2 damage to any target.</Text>
-                            </View>
-                        </View>
-
-                        <View style={styles.cardSection}>
-                            <Text style={styles.cardText}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque sed praesentium blanditiis iste vel? Minima eum mollitia aspernatur expedita modi.</Text>
-                        </View>
-                    </View>
-                </View>
-
-                <View style={styles.card}>
-                    <Text style={styles.title}>Runaway Steam-Kin</Text>
-                    <Image style={styles.image} source={require('../assets/Venom.jpg')} />
-                    <Text style={styles.subtitle}>Creature-Giant</Text>
-
-                    <View style={styles.cardContent}>
-                        <View style={styles.cardSection}>
-                            <Text style={styles.cardText}>Stomp Instant - Adventure</Text>
-                            <View style={styles.cardSubsection}>
-                                <Text style={styles.subsectionText}>Damage can't be prevented this turn. Stomp deals 2 damage to any target.</Text>
-                            </View>
-                        </View>
-                        <View style={styles.cardSection}>
-                            <Text style={styles.cardText}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque sed praesentium blanditiis iste vel? Minima eum mollitia aspernatur expedita modi.</Text>
-                        </View>
-                    </View>
-                </View>
-
-                <View style={styles.card}>
-                    <Text style={styles.title}>Runaway Steam-Kin</Text>
-                    <Image style={styles.image} source={require('../assets/Spiderman.jpg')} />
-                    <Text style={styles.subtitle}>Creature-Giant</Text>
-
-                    <View style={styles.cardContent}>
-                        <View style={styles.cardSection}>
-                            <Text style={styles.cardText}>Stomp Instant - Adventure</Text>
-                            <View style={styles.cardSubsection}>
-                                <Text style={styles.subsectionText}>Damage can't be prevented this turn. Stomp deals 2 damage to any target.</Text>
-                            </View>
-                        </View>
-                        <View style={styles.cardSection}>
-                            <Text style={styles.cardText}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque sed praesentium blanditiis iste vel? Minima eum mollitia aspernatur expedita modi.</Text>
-                        </View>
-                    </View>
-                </View>
-
-                <View style={styles.card}>
-                    <Text style={styles.title}>Runaway Steam-Kin</Text>
-                    <Image style={styles.image} source={require('../assets/Venom.jpg')} />
-                    <Text style={styles.subtitle}>Creature-Giant</Text>
-
-                    <View style={styles.cardContent}>
-                        <View style={styles.cardSection}>
-                            <Text style={styles.cardText}>Stomp Instant - Adventure</Text>
-                            <View style={styles.cardSubsection}>
-                                <Text style={styles.subsectionText}>Damage can't be prevented this turn. Stomp deals 2 damage to any target.</Text>
-                            </View>
-                        </View>
-                        <View style={styles.cardSection}>
-                            <Text style={styles.cardText}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque sed praesentium blanditiis iste vel? Minima eum mollitia aspernatur expedita modi.</Text>
-                        </View>
-                    </View>
-                </View>
-                <View style={styles.buttonContainer}>
-                    <TouchableOpacity onPress={() => navigation.navigate('HomePage')}>
-                        <Text style={styles.socialButton2}>Go to Homepage</Text>
-                    </TouchableOpacity>
-                </View>
+                ))}
             </ScrollView>
+            <View style={styles.buttonContainer}>
+                <TouchableOpacity onPress={() => navigation.navigate('HomePage')} style={styles.homeButton}>
+                    <Text style={styles.buttonText}>Go to Homepage</Text>
+                </TouchableOpacity>
+            </View>
         </View>
     );
 };
 
+const cardsData = [
+    {
+        title: 'Bonecrusher Giant',
+        image: require('../assets/Hulk.jpg'),
+        subtitle: 'Creature-Giant',
+        sectionTitle: 'Stomp Instant - Adventure',
+        sectionText: 'Damage can\'t be prevented this turn. Stomp deals 2 damage to any target.',
+        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque sed praesentium blanditiis iste vel? Minima eum mollitia aspernatur expedita modi.'
+    },
+    {
+        title: 'Runaway Steam-Kin',
+        image: require('../assets/Spiderman.jpg'),
+        subtitle: 'Creature-Giant',
+        sectionTitle: 'Stomp Instant - Adventure',
+        sectionText: 'Damage can\'t be prevented this turn. Stomp deals 2 damage to any target.',
+        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque sed praesentium blanditiis iste vel? Minima eum mollitia aspernatur expedita modi.'
+    },
+    {
+        title: 'Runaway Steam-Kin',
+        image: require('../assets/Venom.jpg'),
+        subtitle: 'Creature-Giant',
+        sectionTitle: 'Stomp Instant - Adventure',
+        sectionText: 'Damage can\'t be prevented this turn. Stomp deals 2 damage to any target.',
+        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque sed praesentium blanditiis iste vel? Minima eum mollitia aspernatur expedita modi.'
+    },
+    {
+        title: 'Runaway Steam-Kin',
+        image: require('../assets/Spiderman.jpg'),
+        subtitle: 'Creature-Giant',
+        sectionTitle: 'Stomp Instant - Adventure',
+        sectionText: 'Damage can\'t be prevented this turn. Stomp deals 2 damage to any target.',
+        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque sed praesentium blanditiis iste vel? Minima eum mollitia aspernatur expedita modi.'
+    },
+    {
+        title: 'Runaway Steam-Kin',
+        image: require('../assets/Venom.jpg'),
+        subtitle: 'Creature-Giant',
+        sectionTitle: 'Stomp Instant - Adventure',
+        sectionText: 'Damage can\'t be prevented this turn. Stomp deals 2 damage to any target.',
+        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque sed praesentium blanditiis iste vel? Minima eum mollitia aspernatur expedita modi.'
+    }
+];
+
 const styles = StyleSheet.create({
-    buttonContainer: {
-        position: 'absolute',
-        top: 750, // Adjust this value as needed
-        left: 90,
-    },
-    socialButton2: {
-        paddingHorizontal: 40,
-        paddingVertical: 20,
-        backgroundColor: 'white',
-        fontSize: 20,
-        borderRadius: 20,
-        fontWeight: 'bold',
-        color: 'black',
-    },
     container: {
         flex: 1,
-        alignItems: 'center',
         backgroundColor: 'black',
+        alignItems: 'center',
+        paddingTop: 30,
     },
     heading: {
         fontSize: 35,
-        marginTop: 35,
         fontWeight: 'bold',
         color: 'white',
         textShadowColor: 'red',
         textShadowOffset: { width: 2, height: 4 },
         textShadowRadius: 10,
     },
+    scrollContainer: {
+        alignItems: 'center',
+        paddingHorizontal: 5
+    },
     card: {
-        marginLeft: 10,
-        marginRight: 10,
-        marginTop: 30,
         width: 300,
-        height: 600,
+        height: 500,
         backgroundColor: 'grey',
         borderRadius: 20,
         borderWidth: 2,
         borderColor: 'white',
-
+        marginHorizontal: 10,
+        padding: 8,
     },
     title: {
         fontSize: 25,
         fontWeight: 'bold',
         alignSelf: 'center',
-        marginTop: 10,
+        marginVertical: 10,
+        color: 'white',
     },
     image: {
-        width: 300,
-        height: 300,
+        width: '100%',
+        height: 100, 
         borderRadius: 20,
-        borderWidth: 5,
-        borderColor: 'black',
+        marginBottom: 10,
     },
     subtitle: {
         fontSize: 20,
         fontWeight: 'bold',
-        marginTop: 20,
-        marginLeft: 10,
+        marginVertical: 10,
+        color: 'white',
+        textAlign: 'center',
     },
     cardContent: {
-        flexDirection: 'row',
-        justifyContent: 'space-around',
-        top: 40,
-        height: 205,
+        flex: 1,
     },
     cardSection: {
         flex: 1,
-        alignItems: 'center',
-        borderWidth: 2,
-        borderColor: 'black',
+        backgroundColor: 'rgba(255, 255, 255, 0.1)',
         borderRadius: 10,
-        padding: 12,
-        marginHorizontal: 4,
-        marginBottom: 40,
+        padding: 10,
+        marginBottom: 10,
     },
     cardText: {
         fontSize: 15,
+        color: 'white',
     },
     cardSubsection: {
-        alignItems: 'center',
-        marginTop: 15,
-        width: 135,
+        marginTop: 10,
     },
     subsectionText: {
-        padding: 5,
+        color: 'white',
+        fontSize: 14,
+    },
+    buttonContainer: {
+        alignItems: 'center',
+    },
+    homeButton: {
+        backgroundColor: 'white',
+        paddingVertical: 10,
+        paddingHorizontal: 20,
+        borderRadius: 20,
+        bottom: 10
+    },
+    buttonText: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        color: 'black',
     },
 });
 

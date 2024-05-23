@@ -11,6 +11,8 @@ const CardsSwipeDemo = ({navigation}) => {
     { image: require('../assets/Spiderman.jpg'), id: 4, title: 'Spiderman', about: 'Spiderman is one of the character of Marvels.' },
     { image: require('../assets/Thor.jpg'), id: 5, title: 'Thor', about: 'Thor is one of the main character of Ragnarok.' },
     { image: require('../assets/Venom.jpg'), id: 6, title: 'Venom', about: 'Venom.' },
+    { image: require('../assets/Hulk.jpg'), id: 3, title: 'Hulk', about: 'Hulk!!!!!' },
+    { image: require('../assets/Venom.jpg'), id: 6, title: 'Venom', about: 'Venom.' },
   ]);
 
 //   useEffect(()=> {
@@ -42,19 +44,19 @@ useEffect(() => {
     onPanResponderRelease: (_, { dx, dy }) => {
       console.log('released:' + 'dx:' + dx + 'dy:' + dy)
       let direction = Math.sign(dx)
-      let isActionActive = Math.abs(dx) > 300
+      let isActionActive = Math.abs(dx) > 180
       if (isActionActive) {
         Animated.timing(swipe, {
-           toValue: { x: 200*dx, y: dy },
+           toValue: { x: 600*dx, y: dy },
           useNativeDriver: true,
-          duration: 200 // means after moving the card more than 300 direction on x then, the card will be swipepd!
+          duration: 500 // means after moving the card more than 300 direction on x then, the card will be swipepd!
         }).start(removeCard)
       }
       else {
         Animated.spring(swipe, {
           toValue: { x: 0, y: 0 },
           useNativeDriver: true,
-          friction: 4 // helps in friction after releasing
+          friction: 6 // helps in friction after releasing
         }).start()
       }
     }
@@ -67,7 +69,7 @@ useEffect(() => {
 
   const handleSelection = useCallback(direction => {
     Animated.timing(swipe, {
-      toValue: { x: direction*700, y: 0 },
+      toValue: { x: direction*600, y: 0 },
      useNativeDriver: true,
      duration: 500 // means after moving the card more than 300 direction on x then, the card will be swipepd!
    }).start(removeCard) 
@@ -80,7 +82,7 @@ useEffect(() => {
         let dragHandlers = isFirst ? panResponser.panHandlers : {};
         return <Cards items={item} isFirst={isFirst} swipe={swipe} {...dragHandlers} />
       }).reverse()}
-      <View style={{width: '100%', position: 'absolute', flexDirection: 'row', justifyContent: 'space-evenly',bottom: 70}}>
+      <View style={{width: '100%', position: 'absolute', flexDirection: 'row', justifyContent: 'space-evenly',bottom: 40}}>
       <TouchableOpacity style= {{width: 70, height: 70, backgroundColor: 'white',  borderRadius: 40, elevation: 15 }} onPress={()=> {handleSelection(-1)}}>
       <Image style={styles.button}source={require('../assets/No.png')}/>
       </TouchableOpacity>

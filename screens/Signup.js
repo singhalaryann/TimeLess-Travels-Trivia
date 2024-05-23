@@ -9,7 +9,7 @@ const Signup = ({ navigation }) => {
     const [isSelected, setSelection] = useState(false);
 
     return (
-        <View style={{backgroundColor: 'black', flex: 1}}>
+        <View style={styles.container}>
         <View style={styles.signupPage}>
             <Text style={styles.signUp}>Sign up</Text>
             <View style={styles.inputContainer}>
@@ -60,6 +60,12 @@ const Signup = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: 'black',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
     signupPage: {
         position: 'absolute',
         backgroundColor: 'white',

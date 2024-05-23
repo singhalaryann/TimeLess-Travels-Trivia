@@ -8,7 +8,7 @@ const Signin = ({ navigation }) => {
     const [isSelected, setSelection] = useState(false);
 
     return (
-        <View style={{ backgroundColor: 'black', flex: 1, alignContent: 'center', justifyContent: 'center' }}>
+        <View style={styles.container}>
             <View style={styles.signinPage}>
                 <Text style={styles.signIn}>Sign IN</Text>
                 <View style={styles.inputContainer}>
@@ -64,6 +64,12 @@ const Signin = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: 'black',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
     signinPage: {
         position: 'absolute',
         backgroundColor: 'white',

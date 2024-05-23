@@ -29,11 +29,11 @@ const Cards = ({ items, isFirst, swipe, ...rest }) => {
         </Animated.View>
       </>
     )
-  }, [])
+  }, [])  
 
   return (
-    <Animated.View style={[{ position: 'absolute', alignSelf: 'center', top: 80, }, isFirst && { transform: [...swipe.getTranslateTransform(), {rotate: rotate }] }]} {...rest}>
-      <Image style={{ width: 380, height: 650, borderRadius: 20 }} source={items.image} />
+    <Animated.View style={[{ position: 'absolute', alignSelf: 'center', justifyContent: 'center', top: 50 }, isFirst && { transform: [...swipe.getTranslateTransform(), {rotate: rotate }] }]} {...rest}>
+      <Image style={{ width: 350, height: 500, borderRadius: 20,}} source={items.image} />
       <Text style={styles.text}>{items.title}</Text>
       {isFirst && cardSelection()}
     </Animated.View>

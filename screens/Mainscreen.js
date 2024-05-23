@@ -1,67 +1,69 @@
 import * as React from "react";
-import { Text, StyleSheet, View, TouchableOpacity, Image } from "react-native";
-import Video from 'react-native-video';
+import { Text, StyleSheet, View, TouchableOpacity, Image, ScrollView } from "react-native";
 
 const MainScreen = ({ navigation }) => {
   return (
-    <View >
-    {/* <Video
-        source={require('../assets/Video.mp4')}
-        style={styles.videoBackground}
-        repeat
-        resizeMode="cover"
-      /> */}
-      <Image style={styles.homepage} source={require('../assets/TT.jpg')}/>
-      <Text style={styles.timelessTravelsBegin}>
-        Timeless Travels (begin your journey..)
-      </Text>
-      <Text style={styles.getmoredone}>Get More Done</Text>
+    <ScrollView contentContainerStyle={styles.container}>
+      <Image style={styles.homepage} source={require('../assets/TT.jpg')} />
+      <View style={styles.topSection}>
+        <Text style={styles.timelessTravelsBegin}>
+          Timeless Travels (begin your journey..)
+        </Text>
+        <Text style={styles.getmoredone}>Get More Done</Text>
+      </View>
+      <View style={styles.bottomSection}>
+        <View style={styles.buttonContainer}>
+          <TouchableOpacity onPress={() => navigation.navigate('SignupPage')} style={styles.signupButton}>
+            <Text style={styles.socialButton1}>SIGN UP</Text>
+          </TouchableOpacity>
 
-      <View style={styles.buttonContainer}>
-        <TouchableOpacity onPress={() => navigation.navigate('SignupPage')}>
-          <Text style={styles.socialButton1}>SIGN UP</Text>
-        </TouchableOpacity>
+          <View style={styles.signinContainer}>
+            <Text style={styles.text}>Already have an account?</Text>
+            <TouchableOpacity onPress={() => navigation.navigate('SigninPage')}>
+              <Text style={styles.signin}>Sign In</Text>
+            </TouchableOpacity>
+          </View>
 
-        <View style={{flexDirection: 'row' }}>
-          <Text style={styles.text}>Already have an account?</Text>
-          <TouchableOpacity onPress={() => navigation.navigate('SigninPage')}>
-            <Text style={styles.signin}>Sign In</Text>
+          <View style={styles.orContainer}>
+            <Text style={styles.orText}>Or</Text>
+          </View>
+          <View style={styles.line}></View>
+          <View style={styles.line}></View>
+
+          <TouchableOpacity style={styles.socialButton} onPress={() => console.log("Sign in with Google pressed")}>
+            <Image source={require("../assets/google.png")} style={styles.socialIcon} />
+            <Text style={styles.socialText}>Sign up with Google</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.socialButton} onPress={() => console.log("Sign up with Facebook pressed")}>
+            <Image source={require("../assets/facebook.png")} style={styles.socialIcon} />
+            <Text style={styles.socialText}>Sign up with Facebook</Text>
           </TouchableOpacity>
         </View>
-
-        <View style={styles.orContainer}>
-          <Text style={styles.orText}>Or</Text>
-        </View>
-        <View style={styles.line}></View>
-        <View style={styles.line}></View>
-
-        <TouchableOpacity style={styles.socialButton} onPress={() => console.log("Sign in with Google pressed")}>
-          <Image source={require("../assets/google.png")} style={styles.socialIcon} />
-          <Text style={styles.socialText}>Sign up with Google</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity style={styles.socialButton} onPress={() => console.log("Sign up with Facebook pressed")}>
-          <Image source={require("../assets/facebook.png")} style={styles.socialIcon} />
-          <Text style={styles.socialText}>Sign up with Facebook</Text>
-        </TouchableOpacity>
       </View>
-    </View>
+    </ScrollView>
   );
 };
-const styles = StyleSheet.create({
-  homepage: {
-    width: '100%',
-    height: 950,
-    position: 'absolute'  
-  },
-  // videoBackground: {
-  //   position: 'absolute',
-  //   top: 0,
-  //   left: 0,
-  //   bottom: 0,
-  //   right: 0,
-  // },
 
+const styles = StyleSheet.create({
+  container: {
+    flexGrow: 1,
+  },
+  homepage: {
+    position: 'absolute',
+    width: '100%',
+    height: '100%',
+  },
+  topSection: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  bottomSection: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   timelessTravelsBegin: {
     textAlign: "center",
     fontSize: 25,
@@ -69,7 +71,8 @@ const styles = StyleSheet.create({
     textShadowColor: 'white',
     textShadowOffset: { width: 1, height: 5 },
     textShadowRadius: 20,
-    top: 70,
+    color: 'white',
+    marginTop: 20,
   },
   getmoredone: {
     textAlign: "center",
@@ -79,44 +82,47 @@ const styles = StyleSheet.create({
     textShadowColor: 'white',
     textShadowOffset: { width: 1, height: 5 },
     textShadowRadius: 20,
-    top: 80
+    marginTop: 10,
   },
-
   buttonContainer: {
-    position: 'absolute',
     alignItems: 'center',
-    justifyContent: 'center',
     width: '90%',
-    top: 580,
-    left: 25
+    marginTop: 40,
+  },
+  signupButton: {
+    width: '100%',
+    alignItems: 'center',
+    marginBottom: 20,
   },
   socialButton1: {
-    paddingHorizontal: 140,
     paddingVertical: 12,
+    paddingHorizontal: 100,
     borderRadius: 10,
     backgroundColor: 'red',
     fontSize: 20,
     fontWeight: 'bold',
-    color: 'white'
+    color: 'white',
+    textAlign: 'center',
   },
-
+  signinContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 20,
+  },
   text: {
     fontSize: 18,
     color: 'white',
     fontWeight: 'bold',
-    marginTop: 15,
   },
   signin: {
     fontSize: 18,
     color: 'white',
     fontWeight: 'bold',
-    marginTop: 15,
-    left: 7,
+    marginLeft: 7,
     textDecorationLine: 'underline',
   },
-
   orContainer: {
-    marginTop: 10,
+    marginBottom: 8,
   },
   orText: {
     fontSize: 20,
@@ -129,7 +135,6 @@ const styles = StyleSheet.create({
     backgroundColor: 'red',
     marginVertical: 3,
   },
-
   socialButton: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -137,13 +142,13 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingVertical: 15,
     borderRadius: 30,
-    marginTop: 20,
+    marginTop: 10,
     width: '90%',
   },
   socialIcon: {
-    width: 28,
-    height: 28,
-    marginRight: 10
+    width: 30,
+    height: 30,
+    marginRight: 10,
   },
   socialText: {
     color: 'black',

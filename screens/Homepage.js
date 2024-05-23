@@ -5,7 +5,7 @@ const Homepage = ({ navigation }) => {
   return (
     <View style={styles.homepage}>
       <View style={styles.buttonContainer}>
-      <TouchableOpacity onPress={() => navigation.navigate('')}>
+      <TouchableOpacity onPress={() => navigation.navigate('MainScreen')}>
         <Text style={styles.socialButton1}>Timeless Travels</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => navigation.navigate('LevelsPage')}>
@@ -16,8 +16,6 @@ const Homepage = ({ navigation }) => {
       <TouchableOpacity  onPress={() => console.log("Setting is clicked!")}>
         <Image style={styles.image} source={require('../assets/Setting.png')} />
       </TouchableOpacity>
-      </View>
-      <View style={styles.image2}>
       <TouchableOpacity style={styles.image2} onPress={() => navigation.navigate('StorybookPage')}>
         <Image style={styles.image2} source={require('../assets/book.png')} />
       </TouchableOpacity>
@@ -32,14 +30,11 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "grey",
-    
   },
   buttonContainer: {
     position: 'absolute',
     alignItems: 'center',
-    justifyContent: 'center',
-    top: 500,
-    
+    justifyContent: 'center',    
   },
   socialButton1: {
     paddingHorizontal: 80,
@@ -63,17 +58,18 @@ const styles = StyleSheet.create({
   },
   image: {
     position: 'absolute',
-    top: 30,
+    top: 20,
     right: 10,
     width: 40,
     height: 40,
   },
   image2: {
     position: 'absolute',
-    top: 40,
-    right: 6,
+    top: 35,
+    right: 5,
     width: 42,
     height: 42,
+    
   }
 });
 
