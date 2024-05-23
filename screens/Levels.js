@@ -3,14 +3,14 @@ import { View, Text, StyleSheet, Image, TouchableOpacity, FlatList } from 'react
 
 const Levels = ({ navigation }) => {
   const data = [
-    { key: '1', image: require('../assets/L-1.jpg'), text: 'MARVEL' },
-    { key: '2', image: require('../assets/L-2.jpg'), text: 'Haunted-House' },
+    { key: '1', image: require('../assets/Zombie.jpg'), text: 'Ghost-House' },
+    { key: '2', image: require('../assets/Palace.jpg'), text: 'Palace' },
     { key: '3', image: require('../assets/L-3.jpg'), text: 'Adventure Island' },
-    { key: '4', image: require('../assets/Hulk.jpg'), text: 'Level 4' },
-    { key: '5', image: require('../assets/Venom.jpg'), text: 'Level 5' },
-    { key: '6', image: require('../assets/Spiderman.jpg'), text: 'Level 6' },
-    { key: '7', image: require('../assets/Groot.jpg'), text: 'Level 7' },
-    { key: '8', image: require('../assets/Spiderman.jpg'), text: 'Level 8' },
+    { key: '4', image: require('../assets/Carnival.jpg'), text: 'Carnival' },
+    { key: '5', image: require('../assets/Cricket.jpg'), text: 'Cricket' },
+    { key: '6', image: require('../assets/Punk-Rock.jpg'), text: 'Punk-Rock' },
+    { key: '7', image: require('../assets/Haunted.jpg'), text: 'Haunted' },
+    { key: '8', image: require('../assets/Punk-Rock.jpg'), text: 'Punk-Rock' },
     { key: '9', image: require('../assets/Thor.jpg'), text: 'Level 9' },
   ];
 
@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
   },
   image: {
     width: 125,
-    height: 180,
+    height: 200,
     borderRadius: 10,
   },
 });

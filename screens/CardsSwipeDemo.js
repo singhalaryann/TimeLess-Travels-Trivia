@@ -5,14 +5,14 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const CardsSwipeDemo = ({navigation}) => {
   const [data, setData] = useState([
-    { image: require('../assets/Groot.jpg'), id: 1, title: 'Groot', about: 'This is one of the character of Marvels.' },
-    { image: require('../assets/Thor.jpg'), id: 2, title: 'Thor', about: 'Go next with Thor.' },
-    { image: require('../assets/Hulk.jpg'), id: 3, title: 'Hulk', about: 'Hulk!!!!!' },
-    { image: require('../assets/Spiderman.jpg'), id: 4, title: 'Spiderman', about: 'Spiderman is one of the character of Marvels.' },
-    { image: require('../assets/Thor.jpg'), id: 5, title: 'Thor', about: 'Thor is one of the main character of Ragnarok.' },
-    { image: require('../assets/Venom.jpg'), id: 6, title: 'Venom', about: 'Venom.' },
-    { image: require('../assets/Hulk.jpg'), id: 3, title: 'Hulk', about: 'Hulk!!!!!' },
-    { image: require('../assets/Venom.jpg'), id: 6, title: 'Venom', about: 'Venom.' },
+    { image: require('../assets/Haunted.jpg'), id: 1, title: 'House', about: 'This is the entry scene of the Haunted House' },
+    { image: require('../assets/HH-1.jpg'), id: 2, title: 'Entrance', about: 'This is the next card.' },
+    { image: require('../assets/HH-2.jpg'), id: 3, title: 'Inner-area', about: 'Alert!!' },
+    { image: require('../assets/HH-3.jpg'), id: 4, title: 'Common-Area', about: 'Enter into the Carnival Era.' },
+    { image: require('../assets/Zombie.jpg'), id: 5, title: 'Zombie', about: 'Haunted' },
+    { image: require('../assets/Punk-Rock.jpg'), id: 6, title: 'Punk-Rock', about: 'Punk-Road.' },
+    { image: require('../assets/Carnival.jpg'), id: 7, title: 'carnival', about: 'Hulk!!!!!' },
+    { image: require('../assets/Haunted.jpg'), id: 8, title: 'Haunted House', about: 'Venom.' },
   ]);
 
 //   useEffect(()=> {

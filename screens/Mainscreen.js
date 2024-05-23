@@ -140,7 +140,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'white',
     paddingHorizontal: 20,
-    paddingVertical: 15,
+    paddingVertical: 12,
     borderRadius: 30,
     marginTop: 10,
     width: '90%',
