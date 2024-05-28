@@ -17,7 +17,7 @@ const LevelComplete = ({ navigation }) => {
           <Text style={styles.scoreLabel}>Score:</Text>
           <Text style={styles.scoreValue}>5,200</Text>
         </View>
-        <TouchableOpacity style={styles.button} onPress={() => console.log('Replay pressed')}>
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('LevelsPage')}>
           <Text style={styles.buttonText}>Replay</Text>
         </TouchableOpacity>
         <View style={styles.buttonContainer}>

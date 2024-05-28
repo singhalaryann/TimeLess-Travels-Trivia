@@ -3,14 +3,14 @@ import { View, Text, StyleSheet, Image, TouchableOpacity, FlatList } from 'react
 
 const Levels = ({ navigation }) => {
   const data = [
-    { key: '1', image: require('../assets/Zombie.jpg'), text: 'Ghost-House' },
+    { key: '1', image: require('../assets/Zombie.jpg'), text: 'Ghost House' },
     { key: '2', image: require('../assets/Palace.jpg'), text: 'Palace' },
-    { key: '3', image: require('../assets/L-3.jpg'), text: 'Adventure Island' },
+    { key: '3', image: require('../assets/Haunted.jpg'), text: 'Haunted' },
     { key: '4', image: require('../assets/Carnival.jpg'), text: 'Carnival' },
     { key: '5', image: require('../assets/Cricket.jpg'), text: 'Cricket' },
-    { key: '6', image: require('../assets/Punk-Rock.jpg'), text: 'Punk-Rock' },
+    { key: '6', image: require('../assets/Punk-Rock.jpg'), text: 'Punk Rock' },
     { key: '7', image: require('../assets/Haunted.jpg'), text: 'Haunted' },
-    { key: '8', image: require('../assets/Punk-Rock.jpg'), text: 'Punk-Rock' },
+    { key: '8', image: require('../assets/Punk-Rock.jpg'), text: 'Punk Rock' },
     { key: '9', image: require('../assets/Thor.jpg'), text: 'Level 9' },
   ];
 
@@ -20,7 +20,7 @@ const Levels = ({ navigation }) => {
         navigation.navigate('CardsSwipeDemoPage');
       }
     }}>
-      <View style={styles.box}>
+      <View style={styles.itemContainer}>
         <Image style={styles.image} source={item.image} />
         <Text style={styles.text}>{item.text}</Text>
       </View>
@@ -29,7 +29,7 @@ const Levels = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.journey}>Journeys</Text>
+      <Text style={styles.header}>Journeys</Text>
       <FlatList
         data={data}
         renderItem={renderItem}
@@ -42,41 +42,40 @@ const Levels = ({ navigation }) => {
 };
 
 const styles = StyleSheet.create({
-  journey: {
-    textShadowColor: 'red',
-    textShadowOffset: { width: 2, height: 4 },
-    textShadowRadius: 10,
-    fontSize: 40,
-    fontWeight: 'bold',
-    justifyContent: 'center',
-    textAlign: 'center',
-    // top: 20,
-    color: 'white'
-  },
   container: {
     flex: 1,
     backgroundColor: 'black',
-    // padding: 10,
+    paddingHorizontal: 10,
+  },
+  header: {
+    fontSize: 30,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    color: 'white',
+    marginBottom: 20,
+    textShadowColor: 'red',
+    textShadowOffset: { width: 2, height: 4 },
+    textShadowRadius: 10,
+    paddingTop: 50
   },
   flatlistContent: {
     alignItems: 'center',
-    // paddingTop: 20,
   },
-  box: {
+  itemContainer: {
     alignItems: 'center',
     backgroundColor: 'white',
     borderRadius: 10,
     margin: 5,
   },
   text: {
-    fontSize: 15,
-    marginTop: 10,
+    fontSize: 16,
     textAlign: 'center',
     color: 'black',
     fontWeight: 'bold',
+    marginTop: 10,
     textShadowColor: 'black',
-    textShadowOffset: { width: 1, height: 3 },
-    textShadowRadius: 10,
+    textShadowOffset: { width: 0, height: 2 },
+    textShadowRadius: 5,
   },
   image: {
     width: 125,

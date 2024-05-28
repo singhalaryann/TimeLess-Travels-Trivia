@@ -10,52 +10,55 @@ const Signup = ({ navigation }) => {
 
     return (
         <View style={styles.container}>
-        <View style={styles.signupPage}>
-            <Text style={styles.signUp}>Sign up</Text>
-            <View style={styles.inputContainer}>
-                <TextInput
-                    style={styles.input}
-                    placeholder='Name'
-                    onChangeText={(text) => setName(text)}
-                    value={name}
-                />
-                <TextInput
-                    style={styles.input}
-                    placeholder='Email'
-                    onChangeText={(text) => setEmail(text)}
-                    value={email}
-                />
-                <TextInput
-                    style={styles.input}
-                    placeholder='Password'
-                    secureTextEntry={true}
-                    onChangeText={(text) => setPassword(text)}
-                    value={password}
-                />
-            </View>
+            <View style={styles.signupPage}>
+                <Text style={styles.signUp}>Sign up</Text>
+                <View style={styles.inputContainer}>
+                    <TextInput
+                        style={styles.input}
+                        placeholder='Name'
+                        placeholderTextColor="grey"
+                        onChangeText={(text) => setName(text)}
+                        value={name}
+                    />
+                    <TextInput
+                        style={styles.input}
+                        placeholder='Email'
+                        placeholderTextColor="grey"
+                        onChangeText={(text) => setEmail(text)}
+                        value={email}
+                    />
+                    <TextInput
+                        style={styles.input}
+                        placeholder='Password'
+                        placeholderTextColor="grey"
+                        secureTextEntry={true}
+                        onChangeText={(text) => setPassword(text)}
+                        value={password}
+                    />
+                </View>
 
-            <CheckBox style={{ alignItems: 'center', left: 20, top: 2 }}
-                isChecked={isSelected}
-                onClick={() => setSelection(!isSelected)}
-                checkBoxColor="#00bfff"
-                rightText={
-                    <Text>
-                        I agree all statements in{" "}
-                        <Text style={styles.termsOfService} onPress={() => console.log("Terms of Service clicked")}>Terms of service</Text>
+                <View style={styles.checkboxContainer}>
+                    <CheckBox
+                        isChecked={isSelected}
+                        onClick={() => setSelection(!isSelected)}
+                        checkBoxColor="#00bfff"
+                    />
+                    <Text style={styles.checkboxText}>
+                        I agree to all statements in{" "}
+                        <Text style={styles.termsOfService} onPress={() => console.log("Terms of Service clicked")}>Terms of Service</Text>
                     </Text>
-                }
-            />
-            <View style={{ flexDirection: 'row', justifyContent: 'space-evenly' }}>
-                <TouchableOpacity style={styles.socialButton} onPress={() => console.log("Sign Up")}>
-                    <Text style={styles.socialText}>SIGN UP</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.socialButton} onPress={() => navigation.navigate('HomePage')}>
-                    <Text style={styles.socialText}>SIGN IN</Text>
-                </TouchableOpacity>
+                </View>
+
+                <View style={styles.buttonWrapper}>
+                    <TouchableOpacity style={styles.signupButton} onPress={() => console.log("Sign Up")}>
+                        <Text style={styles.signupButtonText}>SIGN UP</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.signinButton} onPress={() => navigation.navigate('HomePage')}>
+                        <Text style={styles.signinButtonText}>SIGN IN</Text>
+                    </TouchableOpacity>
+                </View>
             </View>
         </View>
-        </View>
-
     );
 };
 
@@ -67,53 +70,74 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     signupPage: {
-        position: 'absolute',
         backgroundColor: 'white',
-        marginTop: 250,
-        marginLeft: 40,
-        width: "80%",
-        height: 380,
-        borderRadius: 10,
-        shadowColor: 'white',
-    elevation: 50, 
-        
+        padding: 20,
+        borderRadius: 20,
+        width: "85%",
+        shadowColor: 'black',
+        shadowOffset: { width: 0, height: 5 },
+        shadowOpacity: 0.3,
+        shadowRadius: 10,
+        elevation: 15,
     },
     signUp: {
         fontSize: 30,
-        marginTop: 8,
         fontWeight: 'bold',
-        alignSelf: 'center',
+        color: 'black',
+        textAlign: 'center',
+        marginBottom: 20,
     },
     inputContainer: {
-        marginTop: 20,
-        marginLeft: 15,
+        marginBottom: 20,
     },
     input: {
-        width: '90%',
-        padding: 10,
-        bottom: 10,
-        marginBottom: 15,
+        width: '100%',
+        padding: 15,
         borderRadius: 10,
-        borderBottomWidth: 1, // Add a border bottom to simulate underline
+        backgroundColor: '#f2f2f2',
+        marginBottom: 15,
+        color: 'black',
     },
-
-    socialButton: {
+    checkboxContainer: {
+        flexDirection: 'row',
         alignItems: 'center',
-        backgroundColor: 'black',
-        paddingHorizontal: 20,
+        marginBottom: 20,
+    },
+    checkboxText: {
+        marginLeft: 10,
+        color: 'black',
+    },
+    termsOfService: {
+        textDecorationLine: 'underline',
+        color: 'blue',
+    },
+    buttonWrapper: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+    },
+    signupButton: {
+        alignItems: 'center',
+        backgroundColor: 'tomato',
         paddingVertical: 15,
         borderRadius: 30,
-        marginTop: 20,
-        width: '40%',
+        width: '45%',
     },
-    socialText: {
+    signupButtonText: {
         color: 'white',
         fontWeight: 'bold',
         fontSize: 16,
     },
-
-    termsOfService: {
-        textDecorationLine: 'underline',
+    signinButton: {
+        alignItems: 'center',
+        backgroundColor: 'dodgerblue',
+        paddingVertical: 15,
+        borderRadius: 30,
+        width: '45%',
+    },
+    signinButtonText: {
+        color: 'white',
+        fontWeight: 'bold',
+        fontSize: 16,
     },
 });
 

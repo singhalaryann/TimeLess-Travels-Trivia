@@ -4,21 +4,21 @@ import { Text, StyleSheet, View, Image, TouchableOpacity } from "react-native";
 const Homepage = ({ navigation }) => {
   return (
     <View style={styles.homepage}>
-      <View style={styles.buttonContainer}>
-      <TouchableOpacity onPress={() => navigation.navigate('MainScreen')}>
-        <Text style={styles.socialButton1}>Timeless Travels</Text>
+      <View style={styles.headerContainer}>
+        <TouchableOpacity onPress={() => console.log("Setting is clicked!")}>
+          <Image style={styles.settingImage} source={require('../assets/Setting.png')} />
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('LevelsPage')}>
-          <Text style={styles.socialButton2}>LEVELS</Text>
+        <TouchableOpacity onPress={() => navigation.navigate('StorybookPage')}>
+          <Image style={styles.bookImage} source={require('../assets/book.png')} />
         </TouchableOpacity>
       </View>
-      <View style={styles.image}>
-      <TouchableOpacity  onPress={() => console.log("Setting is clicked!")}>
-        <Image style={styles.image} source={require('../assets/Setting.png')} />
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.image2} onPress={() => navigation.navigate('StorybookPage')}>
-        <Image style={styles.image2} source={require('../assets/book.png')} />
-      </TouchableOpacity>
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity style={[styles.button, styles.firstButton]} onPress={() => navigation.navigate('MainScreen')}>
+          <Text style={styles.buttonText}>Timeless Travels</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={[styles.button, styles.secondButton]} onPress={() => navigation.navigate('LevelsPage')}>
+          <Text style={styles.buttonText}>LEVELS</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -29,48 +29,53 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "grey",
+    backgroundColor: "black",
   },
-  buttonContainer: {
+  headerContainer: {
     position: 'absolute',
-    alignItems: 'center',
-    justifyContent: 'center',    
+    top: 30,
+    width: '100%',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingHorizontal: 20,
+    paddingTop: 40
   },
-  socialButton1: {
-    paddingHorizontal: 80,
-    paddingVertical: 35,
-    borderRadius: 30,
-    backgroundColor: 'white',
-    fontSize: 25,
-    fontWeight: 'bold',
-    color: 'black', 
-    
-  },
-  socialButton2: {
-    paddingHorizontal: 60,
-    paddingVertical: 20,
-    backgroundColor: 'white',
-    fontSize: 22,
-    borderRadius: 30,
-    fontWeight: 'bold',
-    color: 'black',
-    top: 20
-  },
-  image: {
-    position: 'absolute',
-    top: 20,
-    right: 10,
+  settingImage: {
     width: 40,
     height: 40,
+    tintColor: 'lightgrey',
   },
-  image2: {
-    position: 'absolute',
-    top: 35,
-    right: 5,
+  bookImage: {
     width: 42,
     height: 42,
-    
-  }
+    tintColor: 'lightgrey',
+  },
+  buttonContainer: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: 20,
+    marginTop: 100,
+  },
+  button: {
+    width: 250,
+    paddingVertical: 20,
+    borderRadius: 30,
+    marginVertical: 10,
+    backgroundColor: 'tomato',
+    elevation: 5,
+  },
+  firstButton: {
+    backgroundColor: 'tomato',
+  },
+  secondButton: {
+    backgroundColor: 'tomato',
+  },
+  buttonText: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: 'lightgrey',
+    textAlign: 'center',
+  },
 });
 
 export default Homepage;

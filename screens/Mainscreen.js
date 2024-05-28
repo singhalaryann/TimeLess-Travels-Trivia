@@ -5,40 +5,42 @@ const MainScreen = ({ navigation }) => {
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <Image style={styles.homepage} source={require('../assets/TT.jpg')} />
-      <View style={styles.topSection}>
-        <Text style={styles.timelessTravelsBegin}>
-          Timeless Travels (begin your journey..)
-        </Text>
-        <Text style={styles.getmoredone}>Get More Done</Text>
-      </View>
-      <View style={styles.bottomSection}>
-        <View style={styles.buttonContainer}>
-          <TouchableOpacity onPress={() => navigation.navigate('SignupPage')} style={styles.signupButton}>
-            <Text style={styles.socialButton1}>SIGN UP</Text>
-          </TouchableOpacity>
+      <View style={styles.overlay}>
+        <View style={styles.topSection}>
+          <Text style={styles.timelessTravelsBegin}>
+            Timeless Travels
+          </Text>
+          <Text style={styles.getmoredone}>Get More Done</Text>
+        </View>
+        <View style={styles.bottomSection}>
+          <View style={styles.buttonContainer}>
+            <TouchableOpacity style={styles.signupButton} onPress={() => navigation.navigate('SignupPage')}>
+              <Text style={styles.signupButtonText}>SIGN UP</Text>
+            </TouchableOpacity>
 
-          <View style={styles.signinContainer}>
-            <Text style={styles.text}>Already have an account?</Text>
-            <TouchableOpacity onPress={() => navigation.navigate('SigninPage')}>
-              <Text style={styles.signin}>Sign In</Text>
+            <View style={styles.signinContainer}>
+              <Text style={styles.text}>Already have an account?</Text>
+              <TouchableOpacity onPress={() => navigation.navigate('SigninPage')}>
+                <Text style={styles.signin}>Sign In</Text>
+              </TouchableOpacity>
+            </View>
+
+            <View style={styles.orContainer}>
+              <Text style={styles.orText}>Or</Text>
+            </View>
+            <View style={styles.line}></View>
+            <View style={styles.line}></View>
+
+            <TouchableOpacity style={styles.socialButton} onPress={() => console.log("Sign in with Google pressed")}>
+              <Image source={require("../assets/google.png")} style={styles.socialIcon} />
+              <Text style={styles.socialText}>Sign up with Google</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.socialButton} onPress={() => console.log("Sign up with Facebook pressed")}>
+              <Image source={require("../assets/facebook.png")} style={styles.socialIcon} />
+              <Text style={styles.socialText}>Sign up with Facebook</Text>
             </TouchableOpacity>
           </View>
-
-          <View style={styles.orContainer}>
-            <Text style={styles.orText}>Or</Text>
-          </View>
-          <View style={styles.line}></View>
-          <View style={styles.line}></View>
-
-          <TouchableOpacity style={styles.socialButton} onPress={() => console.log("Sign in with Google pressed")}>
-            <Image source={require("../assets/google.png")} style={styles.socialIcon} />
-            <Text style={styles.socialText}>Sign up with Google</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity style={styles.socialButton} onPress={() => console.log("Sign up with Facebook pressed")}>
-            <Image source={require("../assets/facebook.png")} style={styles.socialIcon} />
-            <Text style={styles.socialText}>Sign up with Facebook</Text>
-          </TouchableOpacity>
         </View>
       </View>
     </ScrollView>
@@ -54,52 +56,62 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
   },
+  overlay: {
+    flex: 1,
+    backgroundColor: 'rgba(0,0,0,0.6)',
+    width: '100%',
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   topSection: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    marginTop: 80,
   },
   bottomSection: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    width: '100%',
   },
   timelessTravelsBegin: {
     textAlign: "center",
-    fontSize: 25,
+    fontSize: 32,
     fontWeight: 'bold',
-    textShadowColor: 'white',
-    textShadowOffset: { width: 1, height: 5 },
-    textShadowRadius: 20,
+    textShadowColor: 'red',
+    textShadowOffset: { width: 2, height: 2 },
+    textShadowRadius: 5,
     color: 'white',
     marginTop: 20,
+    paddingHorizontal: 10,
   },
   getmoredone: {
     textAlign: "center",
-    fontSize: 25,
+    fontSize: 22,
     fontWeight: 'bold',
-    color: 'black',
-    textShadowColor: 'white',
-    textShadowOffset: { width: 1, height: 5 },
-    textShadowRadius: 20,
+    color: 'lightgrey',
+    textShadowColor: 'black',
+    textShadowOffset: { width: 1, height: 2 },
+    textShadowRadius: 3,
     marginTop: 10,
   },
   buttonContainer: {
     alignItems: 'center',
-    width: '90%',
-    marginTop: 40,
+    width: '100%',
+    paddingHorizontal: 20,
   },
   signupButton: {
-    width: '100%',
-    alignItems: 'center',
+    width: '90%',
+    paddingVertical: 15,
+    borderRadius: 30,
+    backgroundColor: 'tomato',
     marginBottom: 20,
+    elevation: 5,
   },
-  socialButton1: {
-    paddingVertical: 12,
-    paddingHorizontal: 100,
-    borderRadius: 10,
-    backgroundColor: 'red',
-    fontSize: 20,
+  signupButtonText: {
+    fontSize: 18,
     fontWeight: 'bold',
     color: 'white',
     textAlign: 'center',
@@ -110,13 +122,12 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   text: {
-    fontSize: 18,
-    color: 'white',
-    fontWeight: 'bold',
+    fontSize: 16,
+    color: 'lightgrey',
   },
   signin: {
-    fontSize: 18,
-    color: 'white',
+    fontSize: 16,
+    color: 'tomato',
     fontWeight: 'bold',
     marginLeft: 7,
     textDecorationLine: 'underline',
@@ -125,14 +136,14 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   orText: {
-    fontSize: 20,
-    color: 'white',
+    fontSize: 18,
+    color: 'lightgrey',
     fontWeight: 'bold',
   },
   line: {
     width: '90%',
     height: 1,
-    backgroundColor: 'red',
+    backgroundColor: 'lightgrey',
     marginVertical: 3,
   },
   socialButton: {
@@ -144,10 +155,11 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     marginTop: 10,
     width: '90%',
+    elevation: 5,
   },
   socialIcon: {
-    width: 30,
-    height: 30,
+    width: 24,
+    height: 24,
     marginRight: 10,
   },
   socialText: {

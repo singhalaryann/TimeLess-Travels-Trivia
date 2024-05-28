@@ -15,51 +15,47 @@ const Signin = ({ navigation }) => {
                     <TextInput
                         style={styles.input}
                         placeholder='Email'
+                        placeholderTextColor="grey"
                         onChangeText={(text) => setEmail(text)}
                         value={email}
                     />
-
                     <TextInput
                         style={styles.input}
                         placeholder='Password'
+                        placeholderTextColor="grey"
                         secureTextEntry={true}
                         onChangeText={(text) => setPassword(text)}
                         value={password}
                     />
                 </View>
 
-                <CheckBox
-                    style={{ alignItems: 'center', left: 20, top: 15}}
-                    isChecked={isSelected}
-                    onClick={() => setSelection(!isSelected)}
-                    checkBoxColor="#00bfff"
-                    rightText={
-                        <View style={{ position: 'absolute', flexDirection: 'row'}}>
-                            <Text style={{ fontSize: 14}}>Remember Me {"           "}</Text>
-                            <TouchableOpacity onPress={() => console.log("Forget Password clicked")}>
-                                <Text style={{ fontWeight: 'bold'}}>Forget Password</Text>
-                            </TouchableOpacity>
-                        </View>
-                    }
-                />
+                <View style={styles.checkboxContainer}>
+                    <CheckBox
+                        isChecked={isSelected}
+                        onClick={() => setSelection(!isSelected)}
+                        checkBoxColor="#00bfff"
+                    />
+                    <View style={styles.checkboxTextContainer}>
+                        <Text style={styles.rememberMeText}>Remember Me</Text>
+                        <TouchableOpacity onPress={() => console.log("Forget Password clicked")}>
+                            <Text style={styles.forgetPasswordText}>Forget Password</Text>
+                        </TouchableOpacity>
+                    </View>
+                </View>
+
                 <View style={styles.buttonContainer}>
                     <TouchableOpacity onPress={() => navigation.navigate('HomePage')}>
-                        <Text style={styles.socialButton1}>Login In</Text>
+                        <Text style={styles.loginButton}>Login In</Text>
                     </TouchableOpacity>
                 </View>
-                <View style={{
-                    flexDirection: 'row', alignSelf: 'center'
-                }}>
-                {/* <View style={{flexDirection:'row'}}> */}
-                    <Text style={styles.text1}>Create an account?</Text>
+                <View style={styles.signupContainer}>
+                    <Text style={styles.createAccountText}>Create an account?</Text>
                     <TouchableOpacity onPress={() => navigation.navigate('SignupPage')}>
-                        <Text style={styles.text2}>Sign Up</Text>
+                        <Text style={styles.signupText}>Sign Up</Text>
                     </TouchableOpacity>
-                    {/* </View> */}
                 </View>
             </View>
         </View>
-
     );
 };
 
@@ -71,59 +67,82 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     signinPage: {
-        position: 'absolute',
         backgroundColor: 'white',
-        marginLeft: 40,
-        width: "80%",
-        height: 350,
-        borderRadius: 10,
-        shadowColor: 'white',
-    elevation: 50, 
-    },    
+        padding: 20,
+        borderRadius: 20,
+        width: "85%",
+        shadowColor: 'black',
+        shadowOffset: { width: 0, height: 5 },
+        shadowOpacity: 0.3,
+        shadowRadius: 10,
+        elevation: 15,
+    },
     signIn: {
         fontSize: 28,
-        marginTop: 10,
         fontWeight: 'bold',
-        alignSelf: 'center'
+        color: 'black',
+        textAlign: 'center',
+        marginBottom: 20,
     },
     inputContainer: {
-        top: 10,
-        marginLeft: 15,
+        marginBottom: 20,
     },
     input: {
-        width: '90%',
-        padding: 10,
-        marginBottom: 15,
+        width: '100%',
+        padding: 15,
         borderRadius: 10,
-        borderBottomWidth: 1, // Add a border bottom to simulate underline
+        backgroundColor: '#f2f2f2',
+        marginBottom: 15,
+        color: 'black',
     },
-
-   
+    checkboxContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginBottom: 20,
+    },
+    checkboxTextContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        width: '100%',
+    },
+    rememberMeText: {
+        fontSize: 14,
+        color: 'black',
+    },
+    forgetPasswordText: {
+        right: 100,
+        fontSize: 14,
+        fontWeight: 'bold',
+        color: 'black',
+    },
     buttonContainer: {
-        position: 'absolute',
-        alignSelf: 'center',
-        width: '85%',
-        top: 240,
+        alignItems: 'center',
+        width: '100%',
+        marginBottom: 20,
     },
-    socialButton1: {
-        paddingHorizontal: 100,
-        paddingVertical: 12,
-        borderRadius: 8,
-        backgroundColor: 'red',
+    loginButton: {
+        paddingVertical: 15,
+        paddingHorizontal: 30,
+        borderRadius: 30,
+        backgroundColor: 'tomato',
         fontSize: 18,
         fontWeight: 'bold',
         color: 'white',
+        textAlign: 'center',
     },
-    text1: {
+    signupContainer: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+    },
+    createAccountText: {
         fontSize: 15,
         color: 'black',
-        top: 105,
     },
-    text2: {
+    signupText: {
         fontSize: 15,
-        color: 'black',
         fontWeight: 'bold',
-        top: 105,
+        color: 'dodgerblue',
+        marginLeft: 5,
     },
 });
 

@@ -9,17 +9,15 @@ const Storybook = ({ navigation }) => {
                 {cardsData.map((card, index) => (
                     <View key={index} style={styles.card}>
                         <Text style={styles.title}>{card.title}</Text>
-                        <Image style={styles.image} source={card.image} resizeMode="repeat" />
+                        <Image style={styles.image} source={card.image} resizeMode="cover" />
                         <Text style={styles.subtitle}>{card.subtitle}</Text>
                         <View style={styles.cardContent}>
                             <View style={styles.cardSection}>
-                                <Text style={styles.cardText}>{card.sectionTitle}</Text>
-                                <View style={styles.cardSubsection}>
-                                    <Text style={styles.subsectionText}>{card.sectionText}</Text>
-                                </View>
+                                <Text style={styles.cardSectionTitle}>{card.sectionTitle}</Text>
+                                <Text style={styles.cardSectionText}>{card.sectionText}</Text>
                             </View>
                             <View style={styles.cardSection}>
-                                <Text style={styles.cardText}>{card.description}</Text>
+                                <Text style={styles.cardDescription}>{card.description}</Text>
                             </View>
                         </View>
                     </View>
@@ -37,7 +35,7 @@ const Storybook = ({ navigation }) => {
 const cardsData = [
     {
         title: 'Bonecrusher Giant',
-        image: require('../assets/Hulk.jpg'),
+        image: require('../assets/HH-1.jpg'),
         subtitle: 'Creature-Giant',
         sectionTitle: 'Stomp Instant - Adventure',
         sectionText: 'Damage can\'t be prevented this turn. Stomp deals 2 damage to any target.',
@@ -45,7 +43,7 @@ const cardsData = [
     },
     {
         title: 'Runaway Steam-Kin',
-        image: require('../assets/Spiderman.jpg'),
+        image: require('../assets/HH-2.jpg'),
         subtitle: 'Creature-Giant',
         sectionTitle: 'Stomp Instant - Adventure',
         sectionText: 'Damage can\'t be prevented this turn. Stomp deals 2 damage to any target.',
@@ -53,7 +51,7 @@ const cardsData = [
     },
     {
         title: 'Runaway Steam-Kin',
-        image: require('../assets/Venom.jpg'),
+        image: require('../assets/Punk-Rock.jpg'),
         subtitle: 'Creature-Giant',
         sectionTitle: 'Stomp Instant - Adventure',
         sectionText: 'Damage can\'t be prevented this turn. Stomp deals 2 damage to any target.',
@@ -61,7 +59,7 @@ const cardsData = [
     },
     {
         title: 'Runaway Steam-Kin',
-        image: require('../assets/Spiderman.jpg'),
+        image: require('../assets/Carnival.jpg'),
         subtitle: 'Creature-Giant',
         sectionTitle: 'Stomp Instant - Adventure',
         sectionText: 'Damage can\'t be prevented this turn. Stomp deals 2 damage to any target.',
@@ -69,7 +67,7 @@ const cardsData = [
     },
     {
         title: 'Runaway Steam-Kin',
-        image: require('../assets/Venom.jpg'),
+        image: require('../assets/Haunted.jpg'),
         subtitle: 'Creature-Giant',
         sectionTitle: 'Stomp Instant - Adventure',
         sectionText: 'Damage can\'t be prevented this turn. Stomp deals 2 damage to any target.',
@@ -80,87 +78,95 @@ const cardsData = [
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'black',
+        backgroundColor: '#121212',
         alignItems: 'center',
-        paddingTop: 30,
+        paddingTop: 50
+
+
     },
     heading: {
         fontSize: 35,
         fontWeight: 'bold',
-        color: 'white',
-        textShadowColor: 'red',
+        color: '#E0E0E0',
+        textShadowColor: '#FF6347',
         textShadowOffset: { width: 2, height: 4 },
         textShadowRadius: 10,
+        marginBottom: 20,
     },
     scrollContainer: {
-        alignItems: 'center',
-        paddingHorizontal: 5
+        paddingHorizontal: 10,
     },
     card: {
         width: 300,
         height: 500,
-        backgroundColor: 'grey',
+        backgroundColor: '#1E1E1E',
         borderRadius: 20,
         borderWidth: 2,
-        borderColor: 'white',
+        borderColor: '#E0E0E0',
         marginHorizontal: 10,
-        padding: 8,
+        padding: 15,
+        elevation: 5,
+        
     },
     title: {
-        fontSize: 25,
+        fontSize: 22,
         fontWeight: 'bold',
         alignSelf: 'center',
-        marginVertical: 10,
-        color: 'white',
+        marginBottom: 10,
+        color: '#FF6347',
+        
     },
     image: {
         width: '100%',
-        height: 100, 
-        borderRadius: 20,
-        marginBottom: 10,
+        height: 150,
+        borderRadius: 10,
+        marginBottom: 15,
     },
     subtitle: {
-        fontSize: 20,
+        fontSize: 18,
         fontWeight: 'bold',
-        marginVertical: 10,
-        color: 'white',
+        marginBottom: 10,
+        color: '#E0E0E0',
         textAlign: 'center',
     },
     cardContent: {
         flex: 1,
+        
     },
     cardSection: {
-        flex: 1,
+        marginBottom: 15,
+        padding: 10,
         backgroundColor: 'rgba(255, 255, 255, 0.1)',
         borderRadius: 10,
-        padding: 10,
-        marginBottom: 10,
     },
-    cardText: {
-        fontSize: 15,
-        color: 'white',
+    cardSectionTitle: {
+        fontSize: 16,
+        fontWeight: 'bold',
+        color: '#FF6347',
+        marginBottom: 5,
     },
-    cardSubsection: {
-        marginTop: 10,
-    },
-    subsectionText: {
-        color: 'white',
+    cardSectionText: {
         fontSize: 14,
+        color: '#E0E0E0',
+    },
+    cardDescription: {
+        fontSize: 14,
+        color: '#E0E0E0',
     },
     buttonContainer: {
         alignItems: 'center',
+        marginTop: 20,
     },
     homeButton: {
-        backgroundColor: 'white',
+        backgroundColor: '#FF6347',
         paddingVertical: 10,
         paddingHorizontal: 20,
-        borderRadius: 20,
-        bottom: 10
+        borderRadius: 25,
     },
     buttonText: {
-        fontSize: 20,
+        fontSize: 18,
         fontWeight: 'bold',
-        color: 'black',
+        color: '#E0E0E0',
     },
 });
 

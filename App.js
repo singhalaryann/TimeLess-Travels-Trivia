@@ -15,16 +15,48 @@ const Stack = createStackNavigator();
 const App = () => {
   return (
     <NavigationContainer>
-        <Stack.Navigator initialRouteName="MainScreen" headerMode="none">
-          <Stack.Screen name="MainScreen" component={MainScreen} />
-          <Stack.Screen name="SignupPage" component={SignupPage} />
-          <Stack.Screen name="SigninPage" component={Signin} />
-          <Stack.Screen name="HomePage" component={Homepage} />
-          <Stack.Screen name="StorybookPage" component={Storybook} />
-          <Stack.Screen name="CardsSwipeDemoPage" component={CardsSwipeDemo} />
-          <Stack.Screen name="LevelsPage" component={Levels} />
-          <Stack.Screen name="LevelCompletePage" component={LevelComplete} />
-        </Stack.Navigator>
+      <Stack.Navigator initialRouteName="MainScreen">
+        <Stack.Screen
+          name="MainScreen"
+          component={MainScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="SignupPage"
+          component={SignupPage}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="SigninPage"
+          component={Signin}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="HomePage"
+          component={Homepage}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="StorybookPage"
+          component={Storybook}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="CardsSwipeDemoPage"
+          component={CardsSwipeDemo}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="LevelsPage"
+          component={Levels}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="LevelCompletePage"
+          component={LevelComplete}
+          options={{ headerShown: false }}
+        />
+      </Stack.Navigator>
     </NavigationContainer>
   );
 };
