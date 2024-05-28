@@ -1,0 +1,21 @@
+{
+    "build": {
+      "preview": {
+        "releaseChannel": "preview",
+        "developmentClient": true,
+        "android": {
+          "buildType": "apk"
+        }
+      },
+      "production": {
+        "releaseChannel": "default",
+        "android": {
+          "buildType": "app-bundle"
+        }
+      }
+    },
+    "submit": {
+      "production": {}
+    }
+  }
+  

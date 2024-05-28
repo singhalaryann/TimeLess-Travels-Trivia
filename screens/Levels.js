@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
     textShadowColor: 'red',
     textShadowOffset: { width: 2, height: 4 },
     textShadowRadius: 10,
-    paddingTop: 50
+    // paddingTop: 50
   },
   flatlistContent: {
     alignItems: 'center',

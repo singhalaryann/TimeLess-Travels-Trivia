@@ -80,9 +80,7 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#121212',
         alignItems: 'center',
-        paddingTop: 50
-
-
+        // paddingTop: 50
     },
     heading: {
         fontSize: 35,
@@ -105,8 +103,7 @@ const styles = StyleSheet.create({
         borderColor: '#E0E0E0',
         marginHorizontal: 10,
         padding: 15,
-        elevation: 5,
-        
+        elevation: 5, 
     },
     title: {
         fontSize: 22,

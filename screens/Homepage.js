@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     paddingHorizontal: 20,
-    paddingTop: 40
+    // paddingTop: 40
   },
   settingImage: {
     width: 40,
@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: 20,
-    marginTop: 100,
+    // marginTop: 100,
   },
   button: {
     width: 250,

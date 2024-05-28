@@ -4,28 +4,31 @@
     "slug": "Timeless",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/TT.jpg",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
+    "icon": "./assets/TT.jpg",
     "assetBundlePatterns": [
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.yourcompany.timeless"
     },
     "android": {
-      "package": "com.yourcompany.timeless",  
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      }
+      "package": "com.yourcompany.timeless"
+
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "1e2f761e-ee3f-43eb-ad51-eb216560fd7e"
+      }
     }
   }
 }

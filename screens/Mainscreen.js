@@ -68,13 +68,15 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 80,
+    // marginTop: 80,
   },
   bottomSection: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
     width: '100%',
+    marginTop: 100,
+
   },
   timelessTravelsBegin: {
     textAlign: "center",
@@ -84,7 +86,6 @@ const styles = StyleSheet.create({
     textShadowOffset: { width: 2, height: 2 },
     textShadowRadius: 5,
     color: 'white',
-    marginTop: 20,
     paddingHorizontal: 10,
   },
   getmoredone: {
