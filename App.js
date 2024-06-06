@@ -1,5 +1,5 @@
 import React from "react";
-import MainScreen from "./screens/Mainscreen";
+// import MainScreen from "./screens/MainScreen";
 import SignupPage from "./screens/Signup";
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -9,16 +9,17 @@ import Levels from "./screens/Levels";
 import Signin from "./screens/Signin";
 import Storybook from "./screens/Storybook";
 import LevelComplete from "./screens/LevelComplete";
+import Splash from './screens/Splash';
 
 const Stack = createStackNavigator();
 
 const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="MainScreen">
+      <Stack.Navigator initialRouteName="Splash" screenOptions={{ presentation: 'transparentModal' }}>
         <Stack.Screen
-          name="MainScreen"
-          component={MainScreen}
+          name="Splash"
+          component={Splash}
           options={{ headerShown: false }}
         />
         <Stack.Screen

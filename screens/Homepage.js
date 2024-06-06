@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     paddingHorizontal: 20,
-    // paddingTop: 40
+    paddingTop: 50
   },
   settingImage: {
     width: 40,
